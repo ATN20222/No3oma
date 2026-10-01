@@ -1,0 +1,2 @@
+.search-form { display: flex; gap: 10px; padding-block: 26px 10px; max-width: 560px; }
+.search-count { font-size: 14px; color: var(--color-text-secondary); margin-block: 4px 0; }

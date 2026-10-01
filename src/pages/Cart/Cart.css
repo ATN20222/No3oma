@@ -1,0 +1,12 @@
+.cart { padding-block: 28px 40px; }
+.cart__body { gap: 28px; }
+.cart__foot { padding-block: 18px; }
+.cart__summary { background: var(--color-card); border: 1px solid var(--color-border); border-radius: 4px; padding: 22px; position: sticky; top: 92px; }
+.cart__summary-title { margin: 0 0 16px; font-size: 17px; color: var(--color-primary-dark); font-weight: 600; }
+.cart__rows { margin: 0 0 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+.cart__rows div { display: flex; justify-content: space-between; gap: 12px; }
+.cart__rows dt { margin: 0; color: var(--color-text-secondary); }
+.cart__rows dd { margin: 0; color: var(--color-text); }
+.cart__rows-total { padding-block-start: 12px; border-block-start: 1px solid var(--color-border); font-weight: 700; }
+.cart__rows-total dt, .cart__rows-total dd { color: var(--color-primary-dark); }
+.cart__empty { text-align: center; padding-block: 70px; display: flex; flex-direction: column; align-items: center; gap: 18px; color: var(--color-text-secondary); }

@@ -1,0 +1,5 @@
+.product-grid { margin-block: 0; }
+.product-grid__col { margin-block-end: 24px; display: flex; }
+.product-grid__col > * { width: 100%; }
+.product-grid__state { padding: 60px 20px; text-align: center; color: var(--color-text-secondary); background: var(--color-card); border: 1px solid var(--color-border); border-radius: 4px; }
+.product-grid__state--error { color: var(--color-error); }

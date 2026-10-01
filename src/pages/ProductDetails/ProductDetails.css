@@ -1,0 +1,26 @@
+.pd { padding-block: 30px 40px; }
+.pd__top { gap: 32px; }
+.pd__category { margin: 0 0 8px; font-size: 13px; color: var(--color-text-secondary); letter-spacing: 0.06em; }
+.pd__name { margin: 0 0 12px; font-family: 'Playfair Display', 'Cairo', serif; font-size: 30px; font-weight: 600; color: var(--color-primary-dark); }
+.pd__rating { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--color-secondary); margin-block-end: 16px; }
+.pd__stock { font-size: 12px; padding: 3px 9px; border-radius: 2px; border: 1px solid var(--color-border); }
+.pd__stock.is-in { color: var(--color-success); border-color: var(--color-success); }
+.pd__stock.is-out { color: var(--color-error); border-color: var(--color-error); }
+.pd__price { display: flex; align-items: baseline; gap: 12px; padding-block-end: 18px; border-block-end: 1px solid var(--color-border); margin-block-end: 18px; }
+.pd__price strong { font-size: 24px; color: var(--color-primary-dark); }
+.pd__price s { font-size: 14px; color: var(--color-text-secondary); }
+.pd__discount { font-size: 13px; color: var(--color-sale); font-weight: 600; }
+.pd__desc { margin: 0 0 22px; color: var(--color-text-secondary); line-height: 1.9; }
+.pd__option { margin-block-end: 18px; }
+.pd__option-label { display: block; font-size: 13px; font-weight: 600; color: var(--color-primary-dark); margin-block-end: 9px; }
+.pd__sizes { display: flex; flex-wrap: wrap; gap: 8px; }
+.pd__size { padding: 8px 16px; border: 1px solid var(--color-border); background: var(--color-input-background); border-radius: 3px; font-size: 13px; cursor: pointer; color: var(--color-text); transition: border-color 150ms ease; }
+.pd__size:hover { border-color: var(--color-primary); }
+.pd__size.is-active { border-color: var(--color-primary-dark); background: var(--color-card); font-weight: 600; }
+.pd__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-block: 20px; border-block: 1px solid var(--color-border); margin-block: 22px; }
+.pd__facts { margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13px; }
+.pd__facts div { display: flex; gap: 12px; }
+.pd__facts dt { font-weight: 600; color: var(--color-primary-dark); min-width: 92px; margin: 0; }
+.pd__facts dd { margin: 0; color: var(--color-text-secondary); }
+.pd-missing { padding-block: 60px; text-align: center; color: var(--color-text-secondary); }
+@media (max-width: 576px) { .pd__name { font-size: 24px; } .pd__actions .btn { width: 100%; } }

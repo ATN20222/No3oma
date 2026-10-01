@@ -1,0 +1,10 @@
+.breadcrumbs { padding: 18px 0 4px; font-size: 13px; }
+.breadcrumbs__list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.breadcrumbs__item + .breadcrumbs__item::before {
+  content: '/';
+  margin-inline-end: 8px;
+  color: var(--color-text-secondary);
+}
+.breadcrumbs__item a { color: var(--color-text-secondary); text-decoration: none; }
+.breadcrumbs__item a:hover { color: var(--color-primary); }
+.breadcrumbs__item span { color: var(--color-text); }

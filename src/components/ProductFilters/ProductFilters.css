@@ -1,0 +1,8 @@
+.filters { display: flex; flex-direction: column; gap: 26px; }
+.filters__group { border: 0; margin: 0; padding: 0; }
+.filters__legend { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary-dark); padding: 0; margin-block-end: 12px; }
+.filters__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; font-size: 14px; color: var(--color-text-secondary); }
+.filters__check { display: flex; align-items: center; gap: 9px; cursor: pointer; }
+.filters__check input { accent-color: var(--color-primary); width: 15px; height: 15px; }
+.filters__clear { background: none; border: 0; color: var(--color-sale); font-size: 13px; cursor: pointer; padding: 0; }
+.filters__clear:hover { text-decoration: underline; }

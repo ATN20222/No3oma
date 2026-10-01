@@ -1,0 +1,9 @@
+.auth { display: flex; justify-content: center; padding-block: 46px 60px; }
+.auth__card { width: 100%; max-width: 420px; background: var(--color-input-background); border: 1px solid var(--color-border); border-radius: 4px; padding: 30px 28px; }
+.auth__title { margin: 0 0 8px; font-family: 'Playfair Display', 'Cairo', serif; font-size: 24px; color: var(--color-primary-dark); font-weight: 600; }
+.auth__subtitle { margin: 0 0 22px; font-size: 14px; color: var(--color-text-secondary); }
+.auth__form { display: flex; flex-direction: column; gap: 16px; }
+.auth__footer { margin-block-start: 20px; padding-block-start: 18px; border-block-start: 1px solid var(--color-border); font-size: 14px; color: var(--color-text-secondary); }
+.auth__footer a { color: var(--color-primary); }
+.auth__back { margin: 16px 0 0; font-size: 12px; }
+.auth__back a { color: var(--color-text-secondary); text-decoration: none; }

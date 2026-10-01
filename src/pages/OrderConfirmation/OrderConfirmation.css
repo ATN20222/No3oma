@@ -1,0 +1,11 @@
+.confirm { padding-block: 50px 70px; display: flex; justify-content: center; }
+.confirm__box { max-width: 560px; width: 100%; background: var(--color-card); border: 1px solid var(--color-border); border-radius: 4px; padding: 34px 28px; text-align: center; }
+.confirm__check { display: grid; place-items: center; width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%; background: var(--color-success); color: var(--color-button-text); font-size: 24px; }
+.confirm__title { margin: 0 0 8px; font-family: 'Playfair Display', 'Cairo', serif; font-size: 26px; color: var(--color-primary-dark); font-weight: 600; }
+.confirm__ref { margin: 0 0 22px; font-size: 14px; color: var(--color-text-secondary); }
+.confirm__rows { margin: 0 0 18px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; text-align: start; }
+.confirm__rows div { display: flex; justify-content: space-between; gap: 14px; padding-block-end: 9px; border-block-end: 1px solid var(--color-border); }
+.confirm__rows dt { margin: 0; color: var(--color-text-secondary); }
+.confirm__rows dd { margin: 0; color: var(--color-text); }
+.confirm__items { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; text-align: start; }
+.confirm__items li { display: flex; justify-content: space-between; gap: 12px; color: var(--color-text-secondary); }

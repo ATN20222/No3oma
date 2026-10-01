@@ -1,0 +1,6 @@
+.newsletter { background: var(--color-section); border-block: 1px solid var(--color-border); padding-block: 46px; }
+.newsletter__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px; }
+.newsletter__title { margin: 0 0 8px; font-family: 'Playfair Display', 'Cairo', serif; font-size: 24px; font-weight: 600; color: var(--color-primary-dark); }
+.newsletter__text { margin: 0; font-size: 14px; color: var(--color-text-secondary); max-width: 48ch; }
+.newsletter__form { display: flex; gap: 10px; flex: 1 1 320px; max-width: 420px; }
+@media (max-width: 576px) { .newsletter__form { flex-direction: column; max-width: none; } }

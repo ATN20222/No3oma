@@ -1,4 +1,1 @@
-.app {
-  min-height: 100vh;
-  background: #FAF7F0;
-}
+.app-shell { min-height: 60vh; }

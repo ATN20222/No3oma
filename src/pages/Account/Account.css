@@ -1,0 +1,11 @@
+.account { padding-block: 28px 40px; }
+.account__tabs { display: flex; flex-wrap: wrap; gap: 6px; border-block-end: 1px solid var(--color-border); margin-block-end: 24px; }
+.account__tab { background: none; border: 0; padding: 10px 16px; font-size: 14px; color: var(--color-text-secondary); cursor: pointer; border-block-end: 2px solid transparent; margin-block-end: -1px; }
+.account__tab:hover { color: var(--color-text); }
+.account__tab.is-active { color: var(--color-primary-dark); border-block-end-color: var(--color-primary); font-weight: 600; }
+.account__title { margin: 0 0 18px; font-size: 18px; color: var(--color-primary-dark); font-weight: 600; }
+.account__orders { list-style: none; margin: 0 0 18px; padding: 0; }
+.account__orders li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 14px; border-block-end: 1px solid var(--color-border); font-size: 14px; }
+.account__orders small { display: block; color: var(--color-text-secondary); font-size: 12px; margin-block-start: 4px; }
+.account__order-end { display: flex; align-items: center; gap: 14px; }
+.account__order-end a { color: var(--color-primary); font-size: 13px; }

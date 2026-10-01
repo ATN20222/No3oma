@@ -1,0 +1,18 @@
+.footer { background: var(--color-footer); color: var(--color-footer-text); margin-block-start: 60px; }
+.footer__grid { padding-block: 48px 30px; gap: 28px 0; }
+.footer__brand { display: flex; align-items: center; gap: 12px; }
+.footer__brand .brand-mark { border-color: var(--color-footer-accent); color: var(--color-footer-accent); }
+.footer__tag { margin: 0; font-size: 13px; color: var(--color-footer-text); }
+.footer__newsletter { margin-block-start: 20px; }
+.footer__newsletter label { display: block; font-size: 13px; margin-block-end: 8px; color: var(--color-footer-text); }
+.footer__newsletter .form-control { background: rgba(255, 253, 248, 0.06); border: 1px solid rgba(220, 201, 165, 0.25); color: var(--color-footer-text); border-radius: 3px; }
+.footer__newsletter .form-control::placeholder { color: rgba(220, 207, 190, 0.55); }
+.footer__newsletter .form-control:focus { background: rgba(255, 253, 248, 0.1); border-color: var(--color-footer-accent); color: var(--color-text-dark); }
+.footer__title { margin: 0 0 14px; font-size: 14px; font-weight: 600; color: var(--color-footer-accent); letter-spacing: 0.06em; }
+.footer__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+.footer__list a { color: var(--color-footer-text); text-decoration: none; }
+.footer__list a:hover { color: var(--color-footer-accent); }
+.footer__bottom { border-block-start: 1px solid rgba(220, 201, 165, 0.18); padding-block: 18px; font-size: 12px; }
+.footer__policies { display: flex; gap: 18px; }
+.footer__policies a { color: var(--color-footer-text); text-decoration: none; }
+.footer__policies a:hover { color: var(--color-footer-accent); }

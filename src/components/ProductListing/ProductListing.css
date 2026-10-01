@@ -1,0 +1,20 @@
+.listing { padding-block: 24px 10px; }
+.listing__toolbar { padding-block-end: 18px; border-block-end: 1px solid var(--color-border); }
+.listing__count { font-size: 14px; color: var(--color-text-secondary); }
+.listing__body { padding-block-start: 22px; }
+.listing__aside { border-inline-end: 1px solid var(--color-border); padding-inline-end: 24px; }
+.listing__filter-btn { display: none; }
+.pagination { display: flex; gap: 8px; justify-content: center; padding-block: 12px 28px; }
+.pagination__btn { min-width: 36px; height: 36px; border: 1px solid var(--color-border); background: var(--color-input-background); color: var(--color-text); border-radius: 3px; cursor: pointer; font-size: 14px; transition: background-color 150ms ease, border-color 150ms ease; }
+.pagination__btn:hover { border-color: var(--color-primary); }
+.pagination__btn.is-active { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: var(--color-button-text); }
+.listing__drawer { position: fixed; inset: 0; z-index: 60; display: none; }
+.listing__drawer-backdrop { position: absolute; inset: 0; background: rgba(40, 30, 24, 0.45); border: 0; width: 100%; }
+.listing__drawer-panel { position: absolute; inset-block: 0; inset-inline-start: 0; width: min(320px, 88vw); background: var(--color-background); padding: 22px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+.listing__drawer-title { font-size: 17px; margin: 0; color: var(--color-primary-dark); }
+.listing__drawer-close { background: none; border: 0; font-size: 26px; line-height: 1; color: var(--color-text-secondary); cursor: pointer; }
+@media (max-width: 992px) {
+  .listing__aside { display: none; }
+  .listing__filter-btn { display: inline-flex; }
+  .listing__drawer { display: block; }
+}

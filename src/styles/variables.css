@@ -1,0 +1,27 @@
+:root {
+  --color-primary: #C9A45C;
+  --color-primary-dark: #3B2B20;
+  --color-secondary: #B9924A;
+  --color-background: #FAF7F0;
+  --color-navbar: #33261D;
+  --color-navbar-text: #F5EBDD;
+  --color-card: #F3EDE2;
+  --color-section: #E9DED0;
+  --color-text: #352820;
+  --color-text-secondary: #756657;
+  --color-text-dark: #F8F3EA;
+  --color-border: #DCC9A5;
+  --color-gold-hover: #B88D3F;
+  --color-button: #3B2B20;
+  --color-button-text: #FFF9EF;
+  --color-accent-button: #C9A45C;
+  --color-accent-button-text: #3B2B20;
+  --color-sale: #A96858;
+  --color-success: #7C8560;
+  --color-error: #A85445;
+  --color-input-background: #FFFDF8;
+  --color-input-border: #D5C8B7;
+  --color-footer: #281E18;
+  --color-footer-text: #DCCFBE;
+  --color-footer-accent: #C9A45C;
+}
