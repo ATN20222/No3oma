@@ -1,0 +1,25 @@
+.wish-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.wish-btn:hover {
+  color: var(--color-sale);
+  border-color: var(--color-border-strong);
+  transform: scale(1.06);
+}
+
+.wish-btn.is-active {
+  color: var(--color-sale);
+  border-color: var(--color-sale);
+  background: var(--color-sale-soft);
+}

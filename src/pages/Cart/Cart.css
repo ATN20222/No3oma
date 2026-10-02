@@ -1,12 +1,62 @@
-.cart { padding-block: 28px 40px; }
+.cart { padding-block: 32px 44px; }
 .cart__body { gap: 28px; }
-.cart__foot { padding-block: 18px; }
-.cart__summary { background: var(--color-card); border: 1px solid var(--color-border); border-radius: 4px; padding: 22px; position: sticky; top: 92px; }
-.cart__summary-title { margin: 0 0 16px; font-size: 17px; color: var(--color-primary-dark); font-weight: 600; }
-.cart__rows { margin: 0 0 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+
+.cart__foot { padding-block: 18px 4px; }
+
+.cart__summary {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: sticky;
+  top: calc(var(--header-stack) + 24px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cart__summary-title {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.cart__rows { margin: 0 0 22px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
 .cart__rows div { display: flex; justify-content: space-between; gap: 12px; }
 .cart__rows dt { margin: 0; color: var(--color-text-secondary); }
 .cart__rows dd { margin: 0; color: var(--color-text); }
-.cart__rows-total { padding-block-start: 12px; border-block-start: 1px solid var(--color-border); font-weight: 700; }
-.cart__rows-total dt, .cart__rows-total dd { color: var(--color-primary-dark); }
-.cart__empty { text-align: center; padding-block: 70px; display: flex; flex-direction: column; align-items: center; gap: 18px; color: var(--color-text-secondary); }
+
+.cart__rows-total {
+  padding-block-start: 14px;
+  border-block-start: 1px solid var(--color-border);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.cart__rows-total dt,
+.cart__rows-total dd { color: var(--color-text); }
+
+.cart__empty {
+  text-align: center;
+  padding-block: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-text-secondary);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-background-soft);
+}
+
+.cart__note {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--color-text-tertiary);
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .cart__summary { position: static; }
+}

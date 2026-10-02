@@ -11,9 +11,9 @@ export default function Shop() {
   return (
     <>
       <PageHeader
-        title={t('nav.bedding')}
-        subtitle={t('hero.text')}
-        breadcrumbs={[{ label: t('nav.home'), to: '/' }, { label: t('common.searchResults') }]}
+        title={t('common.allProducts')}
+        subtitle={t('shop.subtitle')}
+        breadcrumbs={[{ label: t('nav.home'), to: '/' }, { label: t('common.allProducts') }]}
       />
       <div className="container">
         <ProductListing products={products} />

@@ -1,0 +1,5 @@
+.rating { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--color-text-secondary); }
+.rating__stars { display: inline-flex; gap: 1px; color: var(--color-star); }
+.rating__stars .is-off { color: var(--color-border-strong); }
+.rating__value { font-weight: 600; color: var(--color-text); }
+.rating__count { color: var(--color-text-tertiary); }

@@ -1,0 +1,131 @@
+.mega {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background: var(--color-card);
+  border-block: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  z-index: calc(var(--z-header) - 1);
+  animation: megaIn 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes megaIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega__inner {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  padding-block: 32px;
+}
+
+.mega__heading {
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-body);
+}
+
+.mega__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px 28px;
+}
+
+.mega__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  margin-inline-start: -12px;
+  border-radius: var(--radius-sm);
+  font-size: 14.5px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.mega__link .icon {
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+[dir='rtl'] .mega__link .icon {
+  transform: translateX(-4px);
+}
+
+.mega__link:hover {
+  background: var(--color-section);
+  color: var(--color-text);
+}
+
+.mega__link:hover .icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mega__promo {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  background: var(--color-section);
+}
+
+.mega__promo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.mega__promo:hover img {
+  transform: scale(1.04);
+}
+
+.mega__promo-body {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  padding: 20px 18px 16px;
+  background: linear-gradient(to top, rgba(36, 28, 21, 0.82), rgba(36, 28, 21, 0));
+  color: #fff;
+}
+
+.mega__promo-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mega__promo-text {
+  display: block;
+  font-size: 12.5px;
+  opacity: 0.85;
+  margin-block-start: 2px;
+}
+
+@media (max-width: 992px) {
+  .mega {
+    display: none;
+  }
+}

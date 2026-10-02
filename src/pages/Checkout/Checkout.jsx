@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import CartItem from '../../components/CartItem/CartItem';
 import Button from '../../components/Button/Button';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import CheckoutSteps from '../../components/CheckoutSteps/CheckoutSteps';
 import useCart from '../../hooks/useCart';
 import './Checkout.css';
 
@@ -45,6 +46,8 @@ export default function Checkout() {
     <div className="container checkout">
       <Breadcrumbs items={[{ label: t('nav.home'), to: '/' }, { label: t('cart'), to: '/cart' }, { label: t('common.checkout') }]} />
       <h1 className="checkout__title">{t('common.checkout')}</h1>
+
+      <CheckoutSteps steps={t('checkout.steps', { returnObjects: true })} current={1} />
 
       {items.length === 0 ? (
         <div className="checkout__empty">

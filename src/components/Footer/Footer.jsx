@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Button from '../Button/Button';
-
-const CURRENT_YEAR = new Date().getFullYear();
+import Icon from '../Icon/Icon';
+import useToast from '../../hooks/useToast';
 import './Footer.css';
 
 const shopLinks = [
+  { key: 'beds', to: '/category/beds' },
   { key: 'bedSets', to: '/category/bedSets' },
   { key: 'bedSheets', to: '/category/bedSheets' },
   { key: 'pillows', to: '/category/pillows' },
   { key: 'blankets', to: '/category/blankets' },
+  { key: 'bedroomTextiles', to: '/category/bedroomTextiles' },
 ];
 
 const helpLinks = [
@@ -19,60 +22,154 @@ const helpLinks = [
   { key: 'contact', to: '/contact' },
 ];
 
+const legalLinks = [
+  { key: 'privacy', to: '/privacy-policy' },
+  { key: 'terms', to: '/terms-conditions' },
+];
+
+const YEAR = new Date().getFullYear();
+
 export default function Footer() {
   const { t } = useTranslation();
+  const { notify } = useToast();
+  const [email, setEmail] = useState('');
+
+  const socials = [
+    { icon: 'instagram', label: 'Instagram' },
+    { icon: 'facebook', label: 'Facebook' },
+    { icon: 'whatsapp', label: 'WhatsApp' },
+  ];
 
   return (
     <footer className="footer">
       <div className="container">
-        <div className="row footer__grid">
-          <div className="col-12 col-md-4">
-            <div className="footer__brand">
-              <span className="brand-mark" aria-hidden="true">N</span>
-              <p className="footer__tag">{t('brandTag')}</p>
+        <div className="footer__newsletter">
+          <div>
+            <h2 className="footer__nl-title">{t('newsletter.title')}</h2>
+            <p className="footer__nl-text">{t('newsletter.text')}</p>
+          </div>
+          <form
+            className="footer__nl-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              notify(t('newsletter.done'));
+              setEmail('');
+            }}
+          >
+            <label htmlFor="footer-email" className="visually-hidden">
+              {t('common.email')}
+            </label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t('newsletter.placeholder')}
+            />
+            <Button variant="primary" type="submit">
+              {t('newsletter.submit')}
+            </Button>
+          </form>
+        </div>
+
+        <div className="footer__grid">
+          <div className="footer__brand-col">
+            <Link to="/" className="footer__brand">
+              <span className="footer__mark" aria-hidden="true">
+                N
+              </span>
+              <span>
+                <span className="footer__name">Naouma</span>
+                <span className="footer__tag">{t('brandTag')}</span>
+              </span>
+            </Link>
+            <p className="footer__about">{t('footer.about')}</p>
+            <ul className="footer__contact">
+              <li>
+                <Icon name="phone" size={15} />
+                <span>{t('contact.phonePlaceholder')}</span>
+              </li>
+              <li>
+                <Icon name="mail" size={15} />
+                <span>{t('contact.emailPlaceholder')}</span>
+              </li>
+              <li>
+                <Icon name="clock" size={15} />
+                <span>{t('contact.hours')}</span>
+              </li>
+            </ul>
+            <div className="footer__socials">
+              {socials.map((s) => (
+                <a
+                  key={s.icon}
+                  href="#"
+                  className="footer__social"
+                  aria-label={s.label}
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <Icon name={s.icon} size={17} />
+                </a>
+              ))}
             </div>
-            <form className="footer__newsletter" onSubmit={(e) => e.preventDefault()}>
-              <label htmlFor="footer-email">{t('common.email')}</label>
-              <div className="d-flex gap-2">
-                <input id="footer-email" type="email" className="form-control" placeholder={t('common.email')} />
-                <Button variant="accent" size="sm">{t('common.email')}</Button>
-              </div>
-            </form>
           </div>
 
-          <div className="col-12 col-md-3 col-lg-2">
-            <h3 className="footer__title">{t('nav.bedding')}</h3>
+          <div className="footer__col">
+            <h3 className="footer__col-title">{t('footer.shop')}</h3>
             <ul className="footer__list">
               {shopLinks.map((l) => (
-                <li key={l.key}><Link to={l.to}>{t(`nav.${l.key}`)}</Link></li>
+                <li key={l.key}>
+                  <Link to={l.to}>{t(`nav.${l.key}`)}</Link>
+                </li>
               ))}
             </ul>
           </div>
 
-          <div className="col-12 col-md-3 col-lg-2">
-            <h3 className="footer__title">{t('nav.faq')}</h3>
+          <div className="footer__col">
+            <h3 className="footer__col-title">{t('nav.help')}</h3>
             <ul className="footer__list">
               {helpLinks.map((l) => (
-                <li key={l.key}><Link to={l.to}>{t(`nav.${l.key}`)}</Link></li>
+                <li key={l.key}>
+                  <Link to={l.to}>{t(`nav.${l.key}`)}</Link>
+                </li>
               ))}
             </ul>
           </div>
 
-          <div className="col-12 col-md-2">
-            <h3 className="footer__title">{t('nav.contact')}</h3>
+          <div className="footer__col">
+            <h3 className="footer__col-title">{t('footer.account')}</h3>
             <ul className="footer__list">
-              <li><span>{t('common.phone')}: —</span></li>
-              <li><span>{t('common.email')}: —</span></li>
+              <li>
+                <Link to="/login">{t('common.login')}</Link>
+              </li>
+              <li>
+                <Link to="/register">{t('common.register')}</Link>
+              </li>
+              <li>
+                <Link to="/account">{t('account.orders')}</Link>
+              </li>
+              <li>
+                <Link to="/wishlist">{t('common.wishlist')}</Link>
+              </li>
+              <li>
+                <Link to="/cart">{t('cart')}</Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="footer__bottom d-flex flex-column flex-row justify-between align-center gap-2">
-          <small>© {CURRENT_YEAR} Naouma</small>
-          <div className="footer__policies">
-            <Link to="/privacy-policy">{t('nav.privacy')}</Link>
-            <Link to="/terms-conditions">{t('nav.terms')}</Link>
-          </div>
+        <div className="footer__bottom">
+          <p className="footer__copy">
+            © {t('footer.copyright')} {YEAR} Naouma. {t('footer.rights')}
+          </p>
+          <nav className="footer__legal" aria-label={t('footer.legal')}>
+            {legalLinks.map((l) => (
+              <Link key={l.key} to={l.to}>
+                {t(`nav.${l.key}`)}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

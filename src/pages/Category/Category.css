@@ -1,0 +1,12 @@
+.category__hero {
+  width: 100%;
+  aspect-ratio: 21 / 7;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-block-start: 26px;
+}
+
+@media (max-width: 767px) {
+  .category__hero { aspect-ratio: 16 / 7; margin-block-start: 18px; }
+}

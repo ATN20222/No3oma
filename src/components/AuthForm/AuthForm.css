@@ -1,9 +1,49 @@
-.auth { display: flex; justify-content: center; padding-block: 46px 60px; }
-.auth__card { width: 100%; max-width: 420px; background: var(--color-input-background); border: 1px solid var(--color-border); border-radius: 4px; padding: 30px 28px; }
-.auth__title { margin: 0 0 8px; font-family: 'Playfair Display', 'Cairo', serif; font-size: 24px; color: var(--color-primary-dark); font-weight: 600; }
-.auth__subtitle { margin: 0 0 22px; font-size: 14px; color: var(--color-text-secondary); }
-.auth__form { display: flex; flex-direction: column; gap: 16px; }
-.auth__footer { margin-block-start: 20px; padding-block-start: 18px; border-block-start: 1px solid var(--color-border); font-size: 14px; color: var(--color-text-secondary); }
-.auth__footer a { color: var(--color-primary); }
-.auth__back { margin: 16px 0 0; font-size: 12px; }
-.auth__back a { color: var(--color-text-secondary); text-decoration: none; }
+.auth {
+  min-height: calc(100vh - var(--header-stack) - 80px);
+  display: grid;
+  place-items: center;
+  padding: 48px 20px 72px;
+  background: var(--color-background-soft);
+}
+
+.auth__card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 34px 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.auth__title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.auth__subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.auth__form { display: flex; flex-direction: column; gap: 18px; }
+.auth__field { display: flex; flex-direction: column; gap: 7px; }
+
+.auth__footer {
+  margin-block-start: 22px;
+  padding-block-start: 18px;
+  border-block-start: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.auth__footer a { color: var(--color-secondary); font-weight: 600; }
+.auth__back { margin: 18px 0 0; font-size: 13px; text-align: center; }
+.auth__back a { color: var(--color-text-tertiary); text-decoration: none; }
+.auth__back a:hover { color: var(--color-secondary); }

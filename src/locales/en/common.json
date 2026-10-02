@@ -16,7 +16,11 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "shipping": "Shipping & Delivery",
-    "returns": "Returns & Exchange"
+    "returns": "Returns & Exchange",
+    "shop": "Shop",
+    "help": "Help",
+    "menu": "Menu",
+    "offer": "Up to 20% off"
   },
   "search": "Search",
   "account": {
@@ -44,10 +48,10 @@
       "Soft & Comfortable",
       "Timeless Elegance"
     ],
-    "badge1": "Quality Guaranteed",
-    "badge2": "Bedding",
-    "badge2Sub": "Made to last",
-    "visualAlt": "Collection of bed covers and pillows in an elegant bedroom"
+    "visualAlt": "Collection of bed covers and pillows in an elegant bedroom",
+    "chip": "Free shipping over EGP 3,000",
+    "insetAlt": "Winter blanket on a made bed",
+    "insetText": "Warm winter blankets"
   },
   "common": {
     "addToCart": "Add to Cart",
@@ -93,7 +97,20 @@
     "color": "Color",
     "variant": "Variant",
     "options": "Options",
-    "size": "Size"
+    "size": "Size",
+    "wishlist": "Wishlist",
+    "addToWishlist": "Add to wishlist",
+    "removeFromWishlist": "Remove from wishlist",
+    "allProducts": "All products",
+    "viewAll": "View all",
+    "shopNow": "Shop now",
+    "contactUs": "Contact us",
+    "backToShop": "Back to shop",
+    "close": "Close",
+    "reset": "Reset",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "noResultsHint": "Try different keywords or clear some of your filters."
   },
   "auth": {
     "loginSubtitle": "Enter your details to access your orders and account.",
@@ -134,7 +151,10 @@
     "message": "Your message",
     "send": "Send",
     "sent": "Thanks — we've received your message and will get back to you shortly.",
-    "placeholderNote": "Naouma's official contact details are not available yet, so placeholders are shown."
+    "placeholderNote": "Naouma's official contact details are not available yet, so placeholders are shown.",
+    "phonePlaceholder": "0100 000 0000",
+    "emailPlaceholder": "hello@naouma.example",
+    "hours": "Saturday – Thursday, 10am – 10pm"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -240,7 +260,8 @@
     "title": "New arrivals, by email",
     "text": "Subscribe to receive our latest bedding collections and offers from Naouma.",
     "submit": "Subscribe",
-    "done": "You are subscribed."
+    "done": "You are subscribed.",
+    "placeholder": "Your email address"
   },
   "home": {
     "featuredEyebrow": "Selected",
@@ -248,6 +269,146 @@
     "showcaseEyebrow": "The Season",
     "showcaseTitle": "Calmer Bedroom Moments",
     "newTitle": "New Arrivals",
-    "bestTitle": "Best Sellers"
+    "bestTitle": "Best Sellers",
+    "categoriesEyebrow": "Shop by category",
+    "categoriesTitle": "Start with what you need",
+    "categoriesSubtitle": "Beds, sheets, pillows and blankets — everything for the bedroom in clear sections that make choosing easy.",
+    "featuredSubtitle": "Hand-picked sets from the nicest fabrics we carry.",
+    "newEyebrow": "Just in",
+    "bestEyebrow": "Customer favourites",
+    "bestSubtitle": "The highest-rated products across Naouma.",
+    "showcaseText": "This season's set in calm shades and chosen fabrics that work in the bedroom year-round.",
+    "craftEyebrow": "Quality we care about",
+    "craftTitle": "Fabric chosen with care",
+    "craftText": "We start with the fabric itself: natural cotton, colours that hold, and shades that stay true through repeat washing.",
+    "craftPoints": [
+      "100% natural cotton",
+      "Colours that stay true",
+      "Carefully stitched edges",
+      "Easy-care fabrics"
+    ],
+    "craftCta": "Read our story",
+    "bundleEyebrow": "Save more",
+    "bundleTitle": "Complete sets, smarter prices",
+    "bundleText": "Ready-made bed sets bundle the sheets, pillows and cover in one box — less than buying the pieces separately.",
+    "bundleCta": "Shop bed sets"
+  },
+  "announcement": {
+    "promo": "Free shipping on orders over EGP 3,000",
+    "shipping": "Fast shipping across Egypt",
+    "returns": "14-day returns and exchanges",
+    "support": "Support daily, 10am – 10pm"
+  },
+  "header": {
+    "helpful": "Need help? Call us",
+    "switchLanguage": "Switch language"
+  },
+  "searchOverlay": {
+    "title": "Search the store",
+    "placeholder": "Search beds, sheets, pillows…",
+    "popular": "Popular searches",
+    "suggestions": [
+      "Cotton bed sets",
+      "Satin sheets",
+      "Microfibre pillows",
+      "Winter blankets"
+    ]
+  },
+  "shop": {
+    "subtitle": "Every Naouma product in one place — use the filters and sorting to find what you need fast."
+  },
+  "listing": {
+    "products": "products",
+    "productsIn": "products in this category",
+    "sortBy": "Sort by",
+    "sortOptions": [
+      {
+        "id": "featured",
+        "label": "Featured"
+      },
+      {
+        "id": "newest",
+        "label": "Newest"
+      },
+      {
+        "id": "price-asc",
+        "label": "Price: low to high"
+      },
+      {
+        "id": "price-desc",
+        "label": "Price: high to low"
+      },
+      {
+        "id": "rating",
+        "label": "Top rated"
+      },
+      {
+        "id": "name",
+        "label": "Name (A – Z)"
+      }
+    ],
+    "pagination": "Product pagination",
+    "previous": "Previous page",
+    "next": "Next page",
+    "showResults": "Show results"
+  },
+  "trust": {
+    "title": "Why Naouma",
+    "shippingTitle": "Fast shipping",
+    "shippingText": "Delivered in 2 – 5 business days",
+    "returnsTitle": "Easy exchanges",
+    "returnsText": "14 days to return or exchange",
+    "qualityTitle": "Curated fabrics",
+    "qualityText": "Natural cotton that survives washing",
+    "supportTitle": "Real support",
+    "supportText": "Our team answers your questions"
+  },
+  "product": {
+    "description": "Designed to be a comfortable part of your daily routine: soft fabrics, calm colours and considered details that last.",
+    "addedToCart": "Added to your cart",
+    "new": "New",
+    "gallery": "Product images",
+    "relatedTitle": "You may also like",
+    "detailsTitle": "Product details",
+    "detailsBody": "Soft cotton fabrics with a comfortable hand feel, carefully stitched edges and clear sizing for different bed sizes.",
+    "careTitle": "Care & washing",
+    "careBody": "Wash cold with similar colours, tumble dry low, and avoid bleach to keep the fabrics soft.",
+    "shippingTitle": "Shipping & delivery",
+    "shippingBody": "We prepare your order within one business day, then ship it with a tracking number. Shipping is free on orders above EGP 3,000.",
+    "returnsTitle": "Returns & exchanges",
+    "returnsBody": "You can request a return or exchange within 14 days of delivery, as long as the item is in its original condition."
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "subtitle": "Save the pieces you like and come back to them whenever you want.",
+    "emptyTitle": "Your wishlist is empty",
+    "emptyText": "Tap the heart on any product to save it here for later.",
+    "browse": "Browse products",
+    "itemsCount": "{{count}} saved products",
+    "total": "Wishlist total"
+  },
+  "checkout": {
+    "steps": [
+      "Cart",
+      "Delivery details",
+      "Confirm order"
+    ]
+  },
+  "footer": {
+    "about": "Naouma is an Egyptian home-textile brand focused on bedding, blankets and bedroom essentials — comfortable fabrics and calm design for every bedroom.",
+    "shop": "Shop",
+    "account": "Account",
+    "legal": "Legal links",
+    "copyright": "All rights reserved",
+    "rights": "All rights reserved."
+  },
+  "mega": {
+    "promoText": "Complete bedroom sets in one box"
+  },
+  "filters": {
+    "category": "Category",
+    "priceRange": "Price range",
+    "availability": "Availability",
+    "inStockOnly": "In stock only"
   }
 }

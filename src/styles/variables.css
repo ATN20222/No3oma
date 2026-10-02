@@ -1,27 +1,65 @@
 :root {
   --color-primary: #C9A45C;
-  --color-primary-dark: #3B2B20;
-  --color-secondary: #B9924A;
-  --color-background: #FAF7F0;
-  --color-navbar: #33261D;
-  --color-navbar-text: #F5EBDD;
-  --color-card: #F3EDE2;
-  --color-section: #E9DED0;
-  --color-text: #352820;
-  --color-text-secondary: #756657;
-  --color-text-dark: #F8F3EA;
-  --color-border: #DCC9A5;
-  --color-gold-hover: #B88D3F;
-  --color-button: #3B2B20;
-  --color-button-text: #FFF9EF;
+  --color-primary-dark: #241C15;
+  --color-secondary: #A8823C;
+  --color-background: #FFFFFF;
+  --color-background-soft: #FBF8F4;
+  --color-navbar: #FFFFFF;
+  --color-navbar-text: #241C15;
+  --color-card: #FFFFFF;
+  --color-section: #F7F2EA;
+  --color-section-deep: #F1E9DC;
+  --color-text: #241C15;
+  --color-text-secondary: #6B5D53;
+  --color-text-tertiary: #93857A;
+  --color-text-dark: #FFFFFF;
+  --color-border: #EBE2D6;
+  --color-border-strong: #DACDBB;
+  --color-gold-hover: #B08F45;
+  --color-button: #241C15;
+  --color-button-text: #FFFFFF;
   --color-accent-button: #C9A45C;
-  --color-accent-button-text: #3B2B20;
-  --color-sale: #A96858;
-  --color-success: #7C8560;
-  --color-error: #A85445;
-  --color-input-background: #FFFDF8;
-  --color-input-border: #D5C8B7;
-  --color-footer: #281E18;
-  --color-footer-text: #DCCFBE;
-  --color-footer-accent: #C9A45C;
+  --color-accent-button-text: #241C15;
+  --color-sale: #C0603F;
+  --color-sale-soft: #FBEDE7;
+  --color-success: #6E7A55;
+  --color-success-soft: #EEF1E8;
+  --color-error: #B0563F;
+  --color-input-background: #FFFFFF;
+  --color-input-border: #E2D8CB;
+  --color-footer: #F7F2EA;
+  --color-footer-text: #6B5D53;
+  --color-footer-accent: #A8823C;
+  --color-star: #C9A45C;
+
+  --font-body: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Playfair Display', 'Cairo', serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(36, 28, 21, 0.05);
+  --shadow-sm: 0 2px 10px rgba(36, 28, 21, 0.06);
+  --shadow-md: 0 8px 28px rgba(36, 28, 21, 0.09);
+  --shadow-lg: 0 20px 55px rgba(36, 28, 21, 0.14);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 420ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --header-height: 72px;
+  --nav-height: 50px;
+  --header-stack: 122px;
+  --utility-height: 38px;
+  --announcement-height: 40px;
+  --container-gutter: 20px;
+  --section-space: 72px;
+
+  --z-header: 40;
+  --z-drawer: 60;
+  --z-overlay: 70;
+  --z-toast: 80;
 }

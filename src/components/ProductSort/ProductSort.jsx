@@ -3,14 +3,17 @@ import './ProductSort.css';
 
 export default function ProductSort({ value, onChange }) {
   const { t } = useTranslation();
+  const options = t('listing.sortOptions', { returnObjects: true });
+
   return (
     <label className="sort">
-      <span className="sort__label">{t('common.price')}</span>
-      <select className="sort__select" value={value} onChange={(e) => onChange(e.target.value)}>
-        <option value="featured">Featured</option>
-        <option value="price-asc">Price: Low → High</option>
-        <option value="price-desc">Price: High → Low</option>
-        <option value="rating">Rating</option>
+      <span className="visually-hidden">{t('listing.sortBy')}</span>
+      <select className="select-control sort__select" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => (
+          <option key={o.id} value={o.id}>
+            {o.label}
+          </option>
+        ))}
       </select>
     </label>
   );

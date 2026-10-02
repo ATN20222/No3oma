@@ -1,17 +1,29 @@
-import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useCart from '../../hooks/useCart';
 import useLanguage from '../../hooks/useLanguage';
+import useWishlist from '../../hooks/useWishlist';
+import Icon from '../Icon/Icon';
+import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
+import MegaMenu from '../MegaMenu/MegaMenu';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import SearchOverlay from '../SearchOverlay/SearchOverlay';
 import './Navbar.css';
 
 const navLinks = [
-  { key: 'home', to: '/' },
-  { key: 'bedding', to: '/category/bedding' },
+  { key: 'beds', to: '/category/beds' },
   { key: 'bedSheets', to: '/category/bedSheets' },
+  { key: 'bedding', to: '/category/bedding' },
   { key: 'pillows', to: '/category/pillows' },
   { key: 'covers', to: '/category/covers' },
+  { key: 'blankets', to: '/category/blankets' },
+  { key: 'bedroomTextiles', to: '/category/bedroomTextiles' },
+];
+
+const utilityLinks = [
   { key: 'about', to: '/about' },
+  { key: 'faq', to: '/faq' },
   { key: 'contact', to: '/contact' },
 ];
 
@@ -19,86 +31,189 @@ export default function Navbar() {
   const { t } = useTranslation();
   const { lang, toggle } = useLanguage();
   const { itemCount } = useCart();
-  const [openPath, setOpenPath] = useState(null);
+  const { count: wishCount } = useWishlist();
+  const navigate = useNavigate();
   const location = useLocation();
-  const menuOpen = openPath === location.key;
-  const setMenuOpen = (update) => {
-    setOpenPath((prev) => {
-      const next = typeof update === 'function' ? update(prev === location.key) : update;
-      return next ? location.key : null;
-    });
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
+  const closeTimer = useRef(null);
+
+  const routeKey = `${location.pathname}${location.search}`;
+  const [lastRoute, setLastRoute] = useState(routeKey);
+
+  if (lastRoute !== routeKey) {
+    setLastRoute(routeKey);
+    setMenuOpen(false);
+    setSearchOpen(false);
+    setMegaOpen(false);
+  }
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
+    const close = () => setMegaOpen(false);
+    window.addEventListener('scroll', close, { passive: true });
+    return () => window.removeEventListener('scroll', close);
+  }, []);
+
+  const openMega = () => {
+    clearTimeout(closeTimer.current);
+    setMegaOpen(true);
+  };
+
+  const scheduleCloseMega = () => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setMegaOpen(false), 140);
+  };
+
+  const submitSearch = (e) => {
+    const q = new FormData(e.currentTarget).get('q');
+    const value = String(q ?? '').trim();
+    navigate(value ? `/search?q=${encodeURIComponent(value)}` : '/search');
+  };
 
   return (
-    <header className="navbar-shell">
-      <nav className="navbar container" aria-label={t('nav.home')}>
-        <Link to="/" className="navbar__brand">
-          <span className="brand-mark" aria-hidden="true">N</span>
-          <span className="brand-copy">
-            <span className="brand-copy__name">Naouma</span>
-            <span className="brand-copy__tag">{t('brandTag')}</span>
-          </span>
-        </Link>
+    <>
+      <header className="site-header">
+        <AnnouncementBar />
 
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          aria-controls="primary-nav"
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          <span /><span /><span />
-        </button>
-
-        <div id="primary-nav" className={`navbar__menu ${menuOpen ? 'is-open' : ''}`}>
-          <ul className="navbar__links">
-            {navLinks.map((l) => (
-              <li key={l.key}>
-                <NavLink to={l.to} className={({ isActive }) => (isActive ? 'is-active' : '')}>
+        <div className="utility">
+          <div className="container utility__inner">
+            <p className="utility__note">
+              <Icon name="phone" size={14} />
+              {t('header.helpful')}
+            </p>
+            <nav className="utility__links" aria-label={t('nav.help')}>
+              {utilityLinks.map((l) => (
+                <Link key={l.key} to={l.to}>
                   {t(`nav.${l.key}`)}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                </Link>
+              ))}
+              <Link to="/account">{t('account.title')}</Link>
+            </nav>
+          </div>
         </div>
 
-        <div className="navbar__actions">
-          <Link to="/search" className="nav-icon" aria-label={t('search')}>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M16 16L21 21" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </Link>
+        <div className="header-sticky">
+          <div className="header container">
+            <button
+              type="button"
+              className="icon-btn header__burger"
+              aria-label={t('nav.menu')}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+            >
+              <Icon name="menu" size={22} />
+            </button>
 
-          <button type="button" className="nav-lang" onClick={toggle} aria-label="Switch language">
-            {lang === 'ar' ? 'EN' : 'ع'}
-          </button>
+            <Link to="/" className="brand" aria-label="Naouma">
+              <span className="brand__mark" aria-hidden="true">
+                N
+              </span>
+              <span className="brand__text">
+                <span className="brand__name">Naouma</span>
+                <span className="brand__tag">{t('brandTag')}</span>
+              </span>
+            </Link>
 
-          <Link to="/login" className="nav-icon" aria-label={t('account')}>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M4 19c1.8-3.1 5-4.7 8-4.7s6.2 1.6 8 4.7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </Link>
+            <form className="header-search" role="search" onSubmit={submitSearch}>
+              <Icon name="search" size={18} className="header-search__icon" />
+              <label htmlFor="header-search" className="visually-hidden">
+                {t('search')}
+              </label>
+              <input
+                id="header-search"
+                name="q"
+                type="search"
+                className="header-search__input"
+                placeholder={t('searchOverlay.placeholder')}
+                autoComplete="off"
+              />
+              <button type="submit" className="header-search__submit">
+                {t('search')}
+              </button>
+            </form>
 
-          <Link to="/cart" className="nav-icon nav-cart" aria-label={t('cart')}>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 4h2l2.1 9.2c.2 1 1 1.8 2 1.8h8.8c1 0 1.8-.8 2-1.8L20 7H6.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="10" cy="18" r="1.5" fill="currentColor" />
-              <circle cx="17" cy="18" r="1.5" fill="currentColor" />
-            </svg>
-            {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
-          </Link>
+            <div className="header__actions">
+              <button
+                type="button"
+                className="icon-btn header__search-trigger"
+                aria-label={t('search')}
+                onClick={() => setSearchOpen(true)}
+              >
+                <Icon name="search" size={21} />
+              </button>
+
+              <button type="button" className="icon-btn lang-btn" onClick={toggle} aria-label={t('header.switchLanguage')}>
+                <Icon name="sparkles" size={18} />
+                <span>{lang === 'ar' ? 'EN' : 'ع'}</span>
+              </button>
+
+              <Link to="/wishlist" className="icon-btn header__wish" aria-label={t('common.wishlist')}>
+                <Icon name="heart" size={21} />
+                {wishCount > 0 && <span className="badge badge--soft">{wishCount}</span>}
+              </Link>
+
+              <Link to="/account" className="icon-btn header__account" aria-label={t('account.title')}>
+                <Icon name="user" size={21} />
+              </Link>
+
+              <Link to="/cart" className="icon-btn header__cart" aria-label={t('cart')}>
+                <Icon name="bag" size={21} />
+                {itemCount > 0 && <span className="badge">{itemCount}</span>}
+              </Link>
+            </div>
+          </div>
+
+          <nav className="mainnav" aria-label={t('nav.menu')}>
+            <div className="container mainnav__inner">
+              <div onMouseEnter={openMega} onMouseLeave={scheduleCloseMega}>
+                <button
+                  type="button"
+                  className={`mainnav__trigger ${megaOpen ? 'is-open' : ''}`}
+                  aria-expanded={megaOpen}
+                  onClick={() => setMegaOpen((v) => !v)}
+                >
+                  <Icon name="filter" size={16} />
+                  {t('nav.shop')}
+                  <Icon name="chevronDown" size={15} className="mainnav__chev" />
+                </button>
+              </div>
+
+              <ul className="mainnav__links">
+                <li>
+                  <NavLink to="/" end className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                    {t('nav.home')}
+                  </NavLink>
+                </li>
+                {navLinks.map((l) => (
+                  <li key={l.key}>
+                    <NavLink to={l.to} className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                      {t(`nav.${l.key}`)}
+                    </NavLink>
+                  </li>
+                ))}
+                <li>
+                  <NavLink to="/shop" className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                    {t('common.allProducts')}
+                  </NavLink>
+                </li>
+              </ul>
+
+              <Link to="/shop?sort=price-asc" className="mainnav__offer">
+                <Icon name="gift" size={16} />
+                {t('nav.offer')}
+              </Link>
+            </div>
+          </nav>
+
+          <div onMouseEnter={openMega} onMouseLeave={scheduleCloseMega}>
+            <MegaMenu open={megaOpen} onClose={() => setMegaOpen(false)} />
+          </div>
         </div>
-      </nav>
-    </header>
+      </header>
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }
