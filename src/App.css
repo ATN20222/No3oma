@@ -1,1 +1,4 @@
-.app-shell { min-height: 60vh; }
+.app-shell {
+  min-height: 60vh;
+  overflow-x: clip;
+}

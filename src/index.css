@@ -12,10 +12,14 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-stack) + 24px);
   -webkit-text-size-adjust: 100%;
+  /* Animations translate elements; `clip` keeps them inside the viewport without
+     creating a scroll container (unlike `hidden`, which breaks sticky headers). */
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.75;

@@ -47,19 +47,24 @@ export default function Hero() {
       }
 
       const visual = root.querySelector('.hero__visual');
-      if (visual) {
+      if (visual && window.innerWidth >= 768) {
         parallax = gsap.to(visual, {
-          yPercent: 6,
+          yPercent: 4,
           ease: 'none',
           scrollTrigger: { trigger: root, start: 'top top', end: 'bottom top', scrub: 0.6 },
         });
       }
 
       onPointerMove = (event) => {
+        // Touch devices and narrow screens get no pointer parallax: on a phone it
+        // only adds jank and can push the floating cards past the viewport edge.
         if (window.matchMedia('(pointer: coarse)').matches) return;
+        const width = window.innerWidth;
+        if (width < 768) return;
+        const scale = Math.min(1, width / 1200);
         const { clientX, clientY } = event;
-        const x = clientX / window.innerWidth - 0.5;
-        const y = clientY / window.innerHeight - 0.5;
+        const x = (clientX / width - 0.5) * scale;
+        const y = (clientY / window.innerHeight - 0.5) * scale;
         gsap.to('.hero__inset', { x: x * -16, y: y * -12, duration: 0.9, ease: 'power2.out' });
         gsap.to('.hero__chip', { x: x * 12, y: y * 10, duration: 0.9, ease: 'power2.out' });
       };

@@ -58,9 +58,10 @@ function RouteTransition({ children }) {
 
     getGsap().then(({ gsap }) => {
       if (cancelled || !gsap) return;
+      const narrow = window.innerWidth < 768;
       gsap.fromTo(
         shell,
-        { autoAlpha: 0, y: 14 },
+        narrow ? { autoAlpha: 0 } : { autoAlpha: 0, y: 12 },
         { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform' },
       );
     });
