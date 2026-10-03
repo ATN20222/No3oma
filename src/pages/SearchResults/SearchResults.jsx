@@ -28,7 +28,7 @@ export default function SearchResults() {
         breadcrumbs={[{ label: t('nav.home'), to: '/' }, { label: t('common.searchResults') }]}
       />
       <div className="container">
-        <form className="search-form" onSubmit={submit} role="search">
+        <form className="search-form" onSubmit={submit} role="search" data-reveal="up">
           <label htmlFor="search-input" className="visually-hidden">{t('search')}</label>
           <input
             id="search-input"

@@ -10,7 +10,7 @@ export default function FAQ() {
   return (
     <>
       <PageHeader title={t('faq.title')} subtitle={t('faq.subtitle')} breadcrumbs={[{ label: t('nav.home'), to: '/' }, { label: t('faq.title') }]} />
-      <div className="container faq">
+      <div className="container faq" data-reveal="up">
         <Accordion items={items} />
         <p className="faq__note">{t('contact.placeholderNote')}</p>
       </div>

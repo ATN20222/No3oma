@@ -30,7 +30,7 @@ export default function Account() {
           ))}
         </nav>
 
-        <div className="account__panel">
+        <div className="account__panel" data-reveal="up">
           {tab === 'profile' && (
             <div className="form-card">
               <h2 className="account__title">{t('account.profile')}</h2>

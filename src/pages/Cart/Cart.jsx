@@ -24,7 +24,7 @@ export default function Cart() {
           </div>
         ) : (
           <div className="row cart__body">
-            <div className="col-12 col-lg-8">
+            <div className="col-12 col-lg-8" data-reveal="up">
               {items.map((item) => (
                 <CartItem
                   key={item.id}
@@ -38,7 +38,7 @@ export default function Cart() {
               </div>
             </div>
             <div className="col-12 col-lg-4">
-              <aside className="cart__summary">
+              <aside className="cart__summary" data-reveal="right">
                 <h2 className="cart__summary-title">{t('common.total')}</h2>
                 <dl className="cart__rows">
                   <div><dt>{t('common.subtotal')} ({itemCount})</dt><dd>{subtotal} EGP</dd></div>

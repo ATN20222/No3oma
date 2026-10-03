@@ -57,7 +57,7 @@ export default function Checkout() {
       ) : (
         <form className="row checkout__body" onSubmit={submit} noValidate>
           <div className="col-12 col-lg-7">
-            <section className="form-card checkout__section">
+            <section className="form-card checkout__section" data-reveal="up">
               <h2 className="checkout__section-title">{t('common.fullName')}</h2>
               <div className="row g-3">
                 <div className="col-12 col-md-6">
@@ -92,7 +92,7 @@ export default function Checkout() {
               </div>
             </section>
 
-            <section className="form-card checkout__section">
+            <section className="form-card checkout__section" data-reveal="up" data-reveal-delay="0.08">
               <h2 className="checkout__section-title">{t('common.checkout')}</h2>
               <label className="checkout__radio">
                 <input type="radio" name="payment" value="cod" checked={payment === 'cod'} onChange={(e) => setPayment(e.target.value)} />
@@ -106,7 +106,7 @@ export default function Checkout() {
           </div>
 
           <div className="col-12 col-lg-5">
-            <aside className="checkout__summary">
+            <aside className="checkout__summary" data-reveal="right">
               <h2 className="checkout__section-title">{t('common.total')}</h2>
               <div className="checkout__items">
                 {items.map((item) => (

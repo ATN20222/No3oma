@@ -196,3 +196,5 @@
 @media (max-width: 991px) {
   .pd__top { margin-block-end: 30px; }
 }
+
+.pd__accordion { margin-block-start: 6px; }

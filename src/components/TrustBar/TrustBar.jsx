@@ -14,7 +14,7 @@ export default function TrustBar() {
   return (
     <section className="trust" aria-label={t('trust.title')}>
       <div className="container">
-        <ul className="trust__grid">
+        <ul className="trust__grid" data-reveal="stagger" data-reveal-stagger="0.08" data-reveal-start="top 92%">
           {items.map((i) => (
             <li className="trust__item" key={i.icon}>
               <span className="trust__icon">

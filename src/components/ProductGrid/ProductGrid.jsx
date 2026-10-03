@@ -33,7 +33,7 @@ export default function ProductGrid({ products, loading, error, emptyText, colum
   const colClass = `col-6 col-md-${columns === 3 ? 4 : 4} col-lg-${columns === 2 ? 6 : 3} grid__col`;
 
   return (
-    <div className="row grid">
+    <div className="row grid" data-reveal="stagger" data-reveal-stagger="0.06">
       {products.map((p) => (
         <div className={colClass} key={p.id}>
           <ProductCard product={p} />

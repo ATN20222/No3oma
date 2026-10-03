@@ -1,0 +1,86 @@
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 620px at 78% -8%, rgba(201, 164, 92, 0.16), transparent 62%),
+    radial-gradient(900px 560px at 8% 6%, rgba(176, 143, 69, 0.12), transparent 60%),
+    radial-gradient(1000px 700px at 50% 108%, rgba(233, 224, 210, 0.5), transparent 66%);
+}
+
+.ambient__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.ambient__blob--1 {
+  width: 420px;
+  height: 420px;
+  inset-block-start: -120px;
+  inset-inline-end: -80px;
+  background: rgba(201, 164, 92, 0.3);
+  animation: drift1 34s ease-in-out infinite alternate;
+}
+
+.ambient__blob--2 {
+  width: 360px;
+  height: 360px;
+  inset-block-end: -140px;
+  inset-inline-start: -100px;
+  background: rgba(200, 178, 150, 0.34);
+  animation: drift2 42s ease-in-out infinite alternate;
+}
+
+.ambient__blob--3 {
+  width: 280px;
+  height: 280px;
+  inset-block-start: 42%;
+  inset-inline-start: 46%;
+  background: rgba(226, 208, 180, 0.36);
+  animation: drift3 50s ease-in-out infinite alternate;
+}
+
+.ambient__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+}
+
+@keyframes drift1 {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-70px, 60px, 0) scale(1.14); }
+}
+
+@keyframes drift2 {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to { transform: translate3d(80px, -50px, 0) scale(0.92); }
+}
+
+@keyframes drift3 {
+  from { transform: translate3d(-30px, -20px, 0) scale(0.95); }
+  to { transform: translate3d(40px, 70px, 0) scale(1.18); }
+}
+
+body.has-motion .app-shell,
+body.has-motion .site-header,
+body.has-motion .footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .ambient__blob--3 { display: none; }
+  .ambient__blob--1 { width: 300px; height: 300px; }
+  .ambient__blob--2 { width: 260px; height: 260px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__blob { animation: none; }
+}

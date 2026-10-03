@@ -3,7 +3,7 @@ import './CheckoutSteps.css';
 
 export default function CheckoutSteps({ steps, current = 1 }) {
   return (
-    <ol className="steps" aria-label="Checkout progress">
+    <ol className="steps" aria-label="Checkout progress" data-reveal="up">
       {steps.map((label, i) => {
         const n = i + 1;
         const state = n < current ? 'is-done' : n === current ? 'is-current' : 'is-todo';

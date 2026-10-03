@@ -1,0 +1,116 @@
+.preload {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, #fffdfa 0%, #fbf8f4 45%, #f6efe4 100%);
+  overflow: hidden;
+}
+
+.preload__field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.preload__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.preload__orb--1 {
+  width: 420px;
+  height: 420px;
+  inset-block-start: -80px;
+  inset-inline-end: -60px;
+  background: rgba(201, 164, 92, 0.32);
+}
+
+.preload__orb--2 {
+  width: 340px;
+  height: 340px;
+  inset-block-end: -90px;
+  inset-inline-start: -70px;
+  background: rgba(210, 190, 165, 0.4);
+}
+
+.preload__orb--3 {
+  width: 260px;
+  height: 260px;
+  inset-block-start: 52%;
+  inset-inline-start: 48%;
+  background: rgba(233, 220, 200, 0.55);
+}
+
+.preload__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding-inline: 24px;
+}
+
+.preload__mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  background: var(--color-card);
+  color: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.preload__word {
+  display: flex;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 9vw, 62px);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.preload__word em {
+  display: inline-block;
+  font-style: normal;
+}
+
+.preload__meta {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.preload__track {
+  position: relative;
+  width: min(230px, 60vw);
+  height: 2px;
+  margin-block-start: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  overflow: hidden;
+}
+
+.preload__bar {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  transform-origin: inline-start;
+}
+
+[dir='rtl'] .preload__meta {
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 13px;
+}

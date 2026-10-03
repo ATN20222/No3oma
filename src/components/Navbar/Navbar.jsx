@@ -144,8 +144,7 @@ export default function Navbar() {
               </button>
 
               <button type="button" className="icon-btn lang-btn" onClick={toggle} aria-label={t('header.switchLanguage')}>
-                <Icon name="sparkles" size={18} />
-                <span>{lang === 'ar' ? 'EN' : 'ع'}</span>
+                {lang === 'ar' ? 'EN' : 'ع'}
               </button>
 
               <Link to="/wishlist" className="icon-btn header__wish" aria-label={t('common.wishlist')}>

@@ -410,5 +410,8 @@
     "priceRange": "نطاق السعر",
     "availability": "التوفر",
     "inStockOnly": "المتوفر فقط"
+  },
+  "preload": {
+    "tagline": "فراش وملاءات لنوم أهدأ"
   }
 }

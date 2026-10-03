@@ -78,12 +78,12 @@ export default function ProductDetails() {
 
       <div className="container pd">
         <div className="row pd__top">
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6" data-reveal="left">
             <ProductGallery images={images} alt={name} />
           </div>
 
           <div className="col-12 col-lg-6">
-            <div className="pd__info">
+            <div className="pd__info" data-reveal="right">
               <p className="pd__category">{isAr ? product.categoryName : product.categoryNameEn}</p>
 
               <div className="pd__title-row">
@@ -160,14 +160,16 @@ export default function ProductDetails() {
                 <li>{t('trust.qualityText')}</li>
               </ul>
 
-              <Accordion
-                items={[
-                  { q: t('product.detailsTitle'), a: t('product.detailsBody') },
-                  { q: t('product.careTitle'), a: t('product.careBody') },
-                  { q: t('product.shippingTitle'), a: t('product.shippingBody') },
-                  { q: t('product.returnsTitle'), a: t('product.returnsBody') },
-                ]}
-              />
+              <div className="pd__accordion" data-reveal="up">
+                <Accordion
+                  items={[
+                    { q: t('product.detailsTitle'), a: t('product.detailsBody') },
+                    { q: t('product.careTitle'), a: t('product.careBody') },
+                    { q: t('product.shippingTitle'), a: t('product.shippingBody') },
+                    { q: t('product.returnsTitle'), a: t('product.returnsBody') },
+                  ]}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__newsletter">
+        <div className="footer__newsletter" data-reveal="up">
           <div>
             <h2 className="footer__nl-title">{t('newsletter.title')}</h2>
             <p className="footer__nl-text">{t('newsletter.text')}</p>
@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__grid">
-          <div className="footer__brand-col">
+          <div className="footer__brand-col" data-reveal="up" data-reveal-delay="0.05">
             <Link to="/" className="footer__brand">
               <span className="footer__mark" aria-hidden="true">
                 N

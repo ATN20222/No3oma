@@ -6,7 +6,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs, meta }) {
     <header className="page-header">
       <div className="container">
         {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
-        <div className="page-header__row">
+        <div className="page-header__row" data-reveal="up">
           <div>
             <h1 className="page-header__title">{title}</h1>
             {subtitle && <p className="page-header__subtitle">{subtitle}</p>}

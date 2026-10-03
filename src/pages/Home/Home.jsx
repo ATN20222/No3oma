@@ -39,7 +39,7 @@ export default function Home() {
             }
           />
 
-          <div className="row home-cats">
+          <div className="row home-cats" data-reveal="stagger" data-reveal-stagger="0.08">
             {categories.slice(0, 6).map((c) => (
               <div className="col-6 col-md-4 col-lg-2 home-cats__col" key={c.id}>
                 <CategoryCard category={c} count={byCategory(c.id).length} />
@@ -78,11 +78,11 @@ export default function Home() {
       <section className="home-section home-section--editorial">
         <div className="container">
           <div className="row align-center g-0">
-            <div className="col-12 col-lg-6 home-editorial__col">
+            <div className="col-12 col-lg-6 home-editorial__col" data-reveal="mask">
               <SmartImage className="home-editorial__img" src={editorialImage} alt={t('hero.insetAlt')} />
             </div>
             <div className="col-12 col-lg-6">
-              <div className="home-editorial__body">
+              <div className="home-editorial__body" data-reveal="right">
                 <p className="u-eyebrow">{t('home.craftEyebrow')}</p>
                 <h2 className="home-editorial__title">{t('home.craftTitle')}</h2>
                 <p className="home-editorial__text">{t('home.craftText')}</p>

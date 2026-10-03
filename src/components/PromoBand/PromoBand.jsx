@@ -26,7 +26,7 @@ export default function PromoBand({
           <SmartImage className="promo__img" src={image} alt="" />
           <div className="promo__overlay" aria-hidden="true" />
 
-          <div className="promo__content">
+          <div className="promo__content" data-reveal="left">
             {eyebrow && (
               <p className="promo__eyebrow">
                 <Icon name="sparkles" size={15} />

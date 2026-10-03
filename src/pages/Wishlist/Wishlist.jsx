@@ -38,7 +38,7 @@ export default function Wishlist() {
           </div>
         ) : (
           <>
-            <div className="wishlist__bar">
+            <div className="wishlist__bar" data-reveal="up">
               <p className="wishlist__summary">
                 {t('wishlist.itemsCount', { count: products.length })}
               </p>

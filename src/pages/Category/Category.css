@@ -10,3 +10,8 @@
 @media (max-width: 767px) {
   .category__hero { aspect-ratio: 16 / 7; margin-block-start: 18px; }
 }
+
+.category__hero-wrap {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}

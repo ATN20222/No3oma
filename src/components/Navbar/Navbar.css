@@ -224,16 +224,22 @@
 
 .lang-btn {
   width: auto;
-  gap: 6px;
-  padding-inline: 12px;
+  min-width: 46px;
+  height: 34px;
+  padding-inline: 10px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-card);
+  color: var(--color-text);
 }
 
-.lang-btn .icon {
-  color: var(--color-primary);
+.lang-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-card);
+  color: var(--color-secondary);
 }
 
 .header__search-trigger {
@@ -385,6 +391,7 @@
   }
 
   .lang-btn {
-    padding-inline: 9px;
+    min-width: 40px;
+    padding-inline: 8px;
   }
 }

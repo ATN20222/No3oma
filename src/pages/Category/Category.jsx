@@ -29,7 +29,11 @@ export default function Category() {
       />
 
       <div className="container">
-        {category && <SmartImage className="category__hero" src={category.image} alt={name} />}
+        {category && (
+          <div className="category__hero-wrap" data-reveal="mask">
+            <SmartImage className="category__hero" src={category.image} alt={name} />
+          </div>
+        )}
         <ProductListing
           products={byCategory(id)}
           emptyText={t('common.noResults')}

@@ -410,5 +410,8 @@
     "priceRange": "Price range",
     "availability": "Availability",
     "inStockOnly": "In stock only"
+  },
+  "preload": {
+    "tagline": "Bedding for calmer nights"
   }
 }

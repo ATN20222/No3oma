@@ -17,7 +17,7 @@ export default function About() {
             <p>{t('about.story')}</p>
             <p>{t('about.story2')}</p>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6" data-reveal="mask">
             <img
               src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80"
               alt={t('hero.visualAlt')}
@@ -26,7 +26,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="about__values">
+        <div className="about__values" data-reveal="up">
           <h2 className="about__h2">{t('about.valuesTitle')}</h2>
           <div className="row">
             {values.map((v) => (
