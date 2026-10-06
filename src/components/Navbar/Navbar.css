@@ -112,17 +112,22 @@
   flex-shrink: 0;
 }
 
+/* Arabic is cursive: tracking and uppercase transforms break the joined
+   shapes, so the wordmark drops them in RTL. */
+[dir='rtl'] .brand__name,
+[dir='rtl'] .drawer__brand-name {
+  letter-spacing: normal;
+}
+
+[dir='rtl'] .brand__tag,
+[dir='rtl'] .footer__tag {
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
 .brand__mark {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
+  display: block;
   border-radius: var(--radius-sm);
-  background: var(--color-primary-dark);
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
 }
 
 .brand__text {

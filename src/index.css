@@ -130,8 +130,12 @@ p {
   height: 1px;
   background: var(--color-primary);
   transform: scaleX(0);
-  transform-origin: inline-start;
+  transform-origin: left center;
   transition: transform var(--transition-base);
+}
+
+[dir='rtl'] .u-link::after {
+  transform-origin: right center;
 }
 
 .u-link:hover {

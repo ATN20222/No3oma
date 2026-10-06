@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Toast from "./components/Toast/Toast";
@@ -36,6 +36,14 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions/TermsConditions";
 import ShippingPolicy from "./pages/ShippingPolicy/ShippingPolicy";
 import ReturnExchangePolicy from "./pages/ReturnExchangePolicy/ReturnExchangePolicy";
+
+// The admin dashboard is code-split: merchants never pay for it and store
+// visitors never download it.
+const AdminApp = lazy(() => import("./admin/AdminApp"));
+
+function isAdminPath(pathname) {
+  return pathname === "/admin" || pathname.startsWith("/admin/");
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -130,6 +138,35 @@ function Shell() {
   );
 }
 
+function StorefrontProviders() {
+  return (
+    <CartProvider>
+      <WishlistProvider>
+        <MotionProvider>
+          <Shell />
+        </MotionProvider>
+      </WishlistProvider>
+    </CartProvider>
+  );
+}
+
+function Boundary() {
+  const { pathname } = useLocation();
+
+  if (isAdminPath(pathname)) {
+    return (
+      <Suspense fallback={<div
+          aria-busy="true"
+          style={{ minHeight: "100vh", background: "#FBF8F4", color: "transparent" }}
+        />}>
+        <AdminApp />
+      </Suspense>
+    );
+  }
+
+  return <StorefrontProviders />;
+}
+
 export default function App() {
   useEffect(() => {
     document.body.classList.add('has-motion');
@@ -138,13 +175,7 @@ export default function App() {
   return (
     <ToastProvider>
       <LanguageProvider>
-        <CartProvider>
-          <WishlistProvider>
-            <MotionProvider>
-              <Shell />
-            </MotionProvider>
-          </WishlistProvider>
-        </CartProvider>
+        <Boundary />
       </LanguageProvider>
     </ToastProvider>
   );

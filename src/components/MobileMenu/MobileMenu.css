@@ -70,10 +70,18 @@
 }
 
 .drawer__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.drawer__brand-name {
   font-family: var(--font-display);
   font-size: 20px;
   letter-spacing: 0.06em;
   color: var(--color-text);
+  white-space: nowrap;
 }
 
 .drawer__close {

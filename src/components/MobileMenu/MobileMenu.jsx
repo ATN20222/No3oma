@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { categories } from '../../data/categories';
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
+import BrandLogo from '../BrandLogo/BrandLogo';
 import './MobileMenu.css';
 
 const serviceLinks = [
@@ -43,7 +44,10 @@ export default function MobileMenu({ open, onClose }) {
 
       <div className="drawer__panel">
         <div className="drawer__head">
-          <span className="drawer__brand">Naouma</span>
+          <span className="drawer__brand">
+            <BrandLogo variant="stacked" />
+            <span className="drawer__brand-name">{t('brandName')}</span>
+          </span>
           <button ref={closeRef} type="button" className="drawer__close" onClick={onClose} aria-label={t('common.close')}>
             <Icon name="close" size={20} />
           </button>

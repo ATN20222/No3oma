@@ -64,6 +64,18 @@
   background: var(--color-card);
   color: var(--color-secondary);
   box-shadow: var(--shadow-md);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: 0;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .preload__word {
@@ -80,6 +92,12 @@
 .preload__word em {
   display: inline-block;
   font-style: normal;
+}
+
+/* letter-spacing also trails the final glyph, which nudges a centred word
+   off-axis; the negative margin cancels exactly that trailing gap. */
+.preload__word[dir='ltr'] {
+  margin-inline-end: -0.12em;
 }
 
 .preload__meta {
@@ -106,11 +124,29 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
-  transform-origin: inline-start;
+  transform-origin: left center;
+}
+
+[dir='rtl'] .preload__bar {
+  transform-origin: right center;
 }
 
 [dir='rtl'] .preload__meta {
   letter-spacing: 0.04em;
   text-transform: none;
   font-size: 13px;
+}
+
+/* Arabic is cursive: letter-spacing pulls the joined glyphs apart, and the
+   ascenders/descenders of نعومة need room inside the clipping box that the
+   letter-by-letter reveal relies on. */
+.preload__word[dir='rtl'] {
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 1.35;
+  padding-block-end: 0.08em;
+}
+
+.preload__word[dir='rtl'] em {
+  font-weight: 700;
 }

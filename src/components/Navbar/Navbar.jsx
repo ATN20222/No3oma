@@ -9,6 +9,7 @@ import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
 import MegaMenu from '../MegaMenu/MegaMenu';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import SearchOverlay from '../SearchOverlay/SearchOverlay';
+import BrandLogo from '../BrandLogo/BrandLogo';
 import './Navbar.css';
 
 const navLinks = [
@@ -105,12 +106,10 @@ export default function Navbar() {
               <Icon name="menu" size={22} />
             </button>
 
-            <Link to="/" className="brand" aria-label="Naouma">
-              <span className="brand__mark" aria-hidden="true">
-                N
-              </span>
+            <Link to="/" className="brand" aria-label={t('brandName')}>
+              <BrandLogo variant="mark" className="brand__mark" />
               <span className="brand__text">
-                <span className="brand__name">Naouma</span>
+                <span className="brand__name">{t('brandName')}</span>
                 <span className="brand__tag">{t('brandTag')}</span>
               </span>
             </Link>

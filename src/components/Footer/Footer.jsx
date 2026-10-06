@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import useToast from '../../hooks/useToast';
+import BrandLogo from '../BrandLogo/BrandLogo';
 import './Footer.css';
 
 const shopLinks = [
@@ -77,11 +78,9 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand-col" data-reveal="up" data-reveal-delay="0.05">
             <Link to="/" className="footer__brand">
-              <span className="footer__mark" aria-hidden="true">
-                N
-              </span>
+              <BrandLogo variant="footer" className="footer__mark" />
               <span>
-                <span className="footer__name">Naouma</span>
+                <span className="footer__name">{t('brandName')}</span>
                 <span className="footer__tag">{t('brandTag')}</span>
               </span>
             </Link>
@@ -161,7 +160,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copy">
-            © {t('footer.copyright')} {YEAR} Naouma. {t('footer.rights')}
+            © {t('footer.copyright')} {YEAR} {t('brandName')}. {t('footer.rights')}
           </p>
           <nav className="footer__legal" aria-label={t('footer.legal')}>
             {legalLinks.map((l) => (

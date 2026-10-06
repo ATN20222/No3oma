@@ -1,0 +1,71 @@
+/* One asset, one set of rules, used by every brand slot. */
+.brand-logo {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  flex: none;
+}
+
+/* Navbar: replaces the 40px letter tile, footprint kept identical so the
+   header layout does not shift. */
+.brand-logo--mark {
+  width: auto;
+  height: 40px;
+  max-width: 76px;
+}
+
+/* Footer circle slot. */
+.brand-logo--footer {
+  width: auto;
+  height: 44px;
+  max-width: 84px;
+}
+
+/* Loader: slightly larger so it reads as the hero of the splash. */
+.brand-logo--loader {
+  width: auto;
+  height: 58px;
+  max-width: 120px;
+}
+
+/* Drawer head / any slot that shows the logo on its own. */
+.brand-logo--stacked {
+  width: auto;
+  height: 36px;
+  max-width: 96px;
+}
+
+/* Dashboard shell: scales with the sidebar/topbar. */
+.brand-logo--admin {
+  width: auto;
+  height: 34px;
+  max-width: 104px;
+}
+
+/* Last-resort letter if the asset ever 404s. */
+.brand-logo--fallback {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+@media (max-width: 575.98px) {
+  .brand-logo--mark {
+    height: 34px;
+    max-width: 62px;
+  }
+
+  .brand-logo--footer,
+  .brand-logo--loader {
+    height: 48px;
+    max-width: 96px;
+  }
+
+  .brand-logo--stacked,
+  .brand-logo--admin {
+    height: 30px;
+    max-width: 84px;
+  }
+}

@@ -56,17 +56,8 @@
 }
 
 .footer__mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--color-primary);
-  background: var(--color-card);
-  color: var(--color-secondary);
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
+  display: block;
+  border-radius: var(--radius-sm);
 }
 
 .footer__name {

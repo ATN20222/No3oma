@@ -41,7 +41,7 @@ export default function Hero() {
       };
 
       if (document.querySelector('.preload')) {
-        window.addEventListener('naouma:ready', play, { once: true });
+        window.addEventListener('no3oma:ready', play, { once: true });
       } else {
         play();
       }

@@ -1,4 +1,4 @@
-const KEY = 'naouma.intro.seen';
+const KEY = 'no3oma.intro.seen';
 
 export function shouldShowIntro() {
   if (typeof window === 'undefined') return false;

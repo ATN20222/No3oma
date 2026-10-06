@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getGsap, prefersReducedMotion } from '../../motion/gsap';
 import { markIntroSeen } from '../../motion/intro';
-import Icon from '../Icon/Icon';
+import BrandLogo from '../BrandLogo/BrandLogo';
 import './PageLoader.css';
 
 export default function PageLoader({ show }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const brand = t('brandName');
+  const isRTL = i18n.dir() === 'rtl';
   const rootRef = useRef(null);
   const barRef = useRef(null);
   const [dismissed, setDismissed] = useState(!show);
@@ -22,7 +24,7 @@ export default function PageLoader({ show }) {
     const finish = () => {
       if (cancelled) return;
       setDismissed(true);
-      window.dispatchEvent(new CustomEvent('naouma:ready'));
+      window.dispatchEvent(new CustomEvent('no3oma:ready'));
     };
 
     if (prefersReducedMotion() || typeof requestAnimationFrame === 'undefined') {
@@ -52,13 +54,21 @@ export default function PageLoader({ show }) {
         .fromTo(mark, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: 'back.out(1.7)' }, '-=0.7')
         .fromTo(
           word ? word.querySelectorAll('em') : [],
-          { yPercent: 120, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.75, ease: 'power3.out', stagger: 0.06 },
+          { yPercent: 110, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: isRTL ? 0.8 : 0.75,
+            ease: 'power3.out',
+            // One unit in Arabic, one per glyph in Latin — keep the total
+            // reveal roughly the same length either way.
+            stagger: isRTL ? 0 : 0.07,
+          },
           '-=0.5',
         )
         .fromTo(meta, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.45')
         .fromTo(barRef.current, { scaleX: 0.06 }, { scaleX: 1, duration: 0.95, ease: 'power2.inOut' }, '-=0.5')
-        .to(mark, { rotate: 360, duration: 0.9, ease: 'power2.inOut' }, '-=0.75')
+        .to(mark, { scale: 1.06, duration: 0.45, ease: 'sine.inOut', yoyo: true, repeat: 1 }, '-=0.75')
         .to([mark, word, meta, barRef.current], { opacity: 0, duration: 0.4, ease: 'power1.in' }, '-=0.1')
         .to(root, { autoAlpha: 0, duration: 0.55, ease: 'power2.inOut' }, '-=0.35');
     });
@@ -67,12 +77,12 @@ export default function PageLoader({ show }) {
       cancelled = true;
       if (timeline) timeline.kill();
     };
-  }, [show]);
+  }, [show, brand, isRTL]);
 
   if (dismissed) return null;
 
   return (
-    <div className="preload" ref={rootRef} role="status" aria-live="polite" aria-label={t('brandTag')}>
+    <div className="preload" ref={rootRef} role="status" aria-live="polite" aria-label={brand}>
       <div className="preload__field" aria-hidden="true">
         <span className="preload__orb preload__orb--1" />
         <span className="preload__orb preload__orb--2" />
@@ -80,17 +90,19 @@ export default function PageLoader({ show }) {
       </div>
 
       <div className="preload__inner">
-        <span className="preload__mark" aria-hidden="true">
-          <Icon name="sparkles" size={22} />
-        </span>
+        <BrandLogo variant="loader" className="preload__mark" />
 
-        <p className="preload__word">
-          <em>N</em>
-          <em>a</em>
-          <em>o</em>
-          <em>u</em>
-          <em>m</em>
-          <em>a</em>
+        <p className="preload__word" lang={i18n.language} dir={i18n.dir()}>
+          {/* Arabic is cursive: splitting it into letters would break the
+              joining shapes, so it animates as a single unit instead. */}
+          {isRTL ? (
+            <em className="preload__word-ar">{brand}</em>
+          ) : (
+            Array.from(brand).map((letter, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <em key={`${letter}-${index}`}>{letter}</em>
+            ))
+          )}
         </p>
 
         <p className="preload__meta">{t('preload.tagline')}</p>
